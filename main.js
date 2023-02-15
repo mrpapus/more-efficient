@@ -39,12 +39,13 @@ function loop() {
   }
   if (downkeypressed === true) {
     yo += 5;
-    colorChange("red", xo + 10, yo + 40, 40, 60);
+    colorChange("red", xo + 10, yo + 30, 40, 60);
   }
 
   // bullet
 
   if (fire === true) {
+    shooty + direction;
   }
 
   requestAnimationFrame(loop);
@@ -58,6 +59,13 @@ function colorChange(color, x, y, width, height) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, width, height);
 }
+
+// STOP OTHER KEYS
+// function stopKeys(key1, key2, key3) {
+//   key1 = false;
+//   key2 = false;
+//   key3 = false;
+// }
 
 // key commands
 function keydown() {
