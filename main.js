@@ -24,14 +24,26 @@ function loop() {
   ctx.fillRect(0, 0, cvn.width, cvn.height);
 
   colorChange("blue", xo, yo, 60, 60);
+  if (
+    rightkeypressed === false &&
+    leftkeypressed === false &&
+    upkeypressed === false &&
+    downkeypressed === false
+  ) {
+    colorChange("red", xo + 10, yo + 10, 40, 40);
+  }
   //keys
   if (rightkeypressed === true) {
     xo += 5;
     colorChange("red", xo + 30, yo + 10, 60, 40);
+    colorChange("grey", xo - 15, yo - 20, 80, 20);
+    colorChange("grey", xo - 15, yo + 60, 80, 20);
   }
   if (leftkeypressed === true) {
     xo -= 5;
     colorChange("red", xo - 30, yo + 10, 60, 40);
+    colorChange("grey", xo - 5, yo - 20, 80, 20);
+    colorChange("grey", xo - 5, yo + 60, 80, 20);
   }
   if (upkeypressed === true) {
     yo -= 5;
@@ -59,13 +71,6 @@ function colorChange(color, x, y, width, height) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, width, height);
 }
-
-// STOP OTHER KEYS
-// function stopKeys(key1, key2, key3) {
-//   key1 = false;
-//   key2 = false;
-//   key3 = false;
-// }
 
 // key commands
 function keydown() {
